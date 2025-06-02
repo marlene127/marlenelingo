@@ -59,12 +59,14 @@ if modus == "Vokabeln":
         korrekt = daten["de"]
 
     if eingabe:
-        st.session_state.gesamt += 1
-        if eingabe.lower() == korrekt.lower():
-            st.success("✅ Richtig!")
-            st.session_state.punkte += 1
-        else:
-            st.error(f"❌ Falsch! Richtig wäre: {korrekt}")
+    st.session_state.gesamt += 1
+    if eingabe.lower() == korrekt.lower():
+        st.success("✅ Richtig!")
+        st.session_state.punkte += 1
+    else:
+        st.error(f"❌ Falsch! Richtig wäre: {korrekt}")
+    st.experimental_rerun()
+
 
 # ---------------------------------------
 # Grammatikmodus
@@ -75,13 +77,15 @@ elif modus == "Grammatik":
     st.write(daten["frage"])
     antwort = st.radio("Wähle die richtige Form:", [daten["option1"], daten["option2"], daten["option3"]])
 
-    if st.button("Antwort prüfen", key="grammatik"):
-        st.session_state.gesamt += 1
-        if antwort == daten["antwort"]:
-            st.success("✅ Richtig!")
-            st.session_state.punkte += 1
-        else:
-            st.error(f"❌ Falsch! Richtig wäre: {daten['antwort']}")
+   if st.button("Antwort prüfen", key="grammatik"):
+    st.session_state.gesamt += 1
+    if antwort == daten["antwort"]:
+        st.success("✅ Richtig!")
+        st.session_state.punkte += 1
+    else:
+        st.error(f"❌ Falsch! Richtig wäre: {daten['antwort']}")
+    st.experimental_rerun()
+
 
 # ---------------------------------------
 # Leseverständnis
@@ -95,12 +99,14 @@ elif modus == "Leseverständnis":
     antwort = st.radio("Wähle:", [daten["option1"], daten["option2"], daten["option3"]])
 
     if st.button("Antwort prüfen", key="lesen"):
-        st.session_state.gesamt += 1
-        if antwort == daten["antwort"]:
-            st.success("✅ Richtig!")
-            st.session_state.punkte += 1
-        else:
-            st.error(f"❌ Falsch! Richtig wäre: {daten['antwort']}")
+    st.session_state.gesamt += 1
+    if antwort == daten["antwort"]:
+        st.success("✅ Richtig!")
+        st.session_state.punkte += 1
+    else:
+        st.error(f"❌ Falsch! Richtig wäre: {daten['antwort']}")
+    st.experimental_rerun()
+
 
 # Fortschrittsbalken
 if st.session_state.gesamt > 0:
