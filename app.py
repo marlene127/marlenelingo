@@ -22,6 +22,17 @@ if "gesamt" not in st.session_state:
 if "neue_aufgabe" not in st.session_state:
     st.session_state.neue_aufgabe = True
 
+# Session State Initialisierung
+for key, default in {
+    "punkte": 0,
+    "gesamt": 0,
+    "neue_aufgabe": True,
+    "akt_daten": None,
+    "richtung": None
+}.items():
+    if key not in st.session_state:
+        st.session_state[key] = default
+        
 st.title("🇮🇹 MarleneLingo 6.2 PRO 🚀")
 st.write(f"🌟 Punkte: {st.session_state.punkte} / {st.session_state.gesamt}")
 
