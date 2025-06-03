@@ -9,10 +9,10 @@ if eingabe != passwort:
     st.warning("Zutritt nur für Berechtigte.")
     st.stop()
 
-# Daten laden
 vokabeln = pd.read_csv("vokabeln.csv")
-grammatik = pd.read_csv("grammatik.csv")
+grammatik = pd.read_csv("grammatik.csv", quotechar='"')
 lesen = pd.read_csv("lesen.csv")
+
 
 # Session State initialisieren
 if "punkte" not in st.session_state:
